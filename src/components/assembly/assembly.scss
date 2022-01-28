@@ -1,0 +1,13 @@
+.assembly {
+    display: flex;
+    align-items: center;
+    font-size: 24px;
+
+    &__title {
+        font-style: italic;
+    }
+
+    &__mode {
+        color: black;
+    }
+}

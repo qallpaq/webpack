@@ -1,4 +1,4 @@
-const paths = require('./paths');
+const paths = require('./paths')
 const webpack = require('webpack')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const { CleanWebpackPlugin } = require('clean-webpack-plugin')
@@ -13,9 +13,13 @@ module.exports = {
         filename: '[name].bundle.js',
     },
 
+    resolve: {
+        extensions: ['.ts', '.tsx', '.js', '.json'],
+    },
+
     plugins: [
         new HtmlWebpackPlugin({
-            title: "Webpack App",
+            title: 'Webpack App',
             template: paths.templatePath,
             filename: 'index.html',
         }),
@@ -26,9 +30,9 @@ module.exports = {
     module: {
         rules: [
             {
-                test: /\.js$|jsx/,
+                test: /\.ts$|tsx?$/,
+                use: 'ts-loader',
                 exclude: /node_modules/,
-                use: ['babel-loader'],
             },
             {
                 test: /\.(?:ico|gif|png|jpg|jpeg)$/i,
@@ -37,7 +41,7 @@ module.exports = {
             {
                 test: /\.(woff(2)?|eot|ttf|otf|svg|)$/,
                 type: 'asset/inline',
-            }
+            },
         ],
     },
 }

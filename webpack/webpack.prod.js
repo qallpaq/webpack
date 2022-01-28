@@ -1,20 +1,26 @@
-const { merge } = require('webpack-merge');
+const { merge } = require('webpack-merge')
 const webpackBase = require('./webpack.base')
-const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 
 module.exports = () => {
-    return merge(webpackBase, {
-        mode: 'production',
+    const mode = 'production'
+    process.env.NODE_CONFIG_ENV = mode
 
-        plugins:  [
-            new MiniCssExtractPlugin()
-        ],
+    return merge(webpackBase, {
+        mode: mode,
+
+        plugins: [new MiniCssExtractPlugin()],
 
         module: {
             rules: [
                 {
                     test: /\.(scss|css)$/,
-                    use: [MiniCssExtractPlugin.loader, 'css-loader', 'postcss-loader', 'sass-loader'],
+                    use: [
+                        MiniCssExtractPlugin.loader,
+                        'css-loader',
+                        'postcss-loader',
+                        'sass-loader',
+                    ],
                 },
             ],
         },

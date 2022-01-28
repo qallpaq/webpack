@@ -1,9 +1,14 @@
-const { merge } = require('webpack-merge');
+const { merge } = require('webpack-merge')
 const webpackBase = require('./webpack.base')
 
 module.exports = () => {
+    const mode = 'development'
+    process.env.NODE_CONFIG_ENV = mode
+
     return merge(webpackBase, {
-        mode: 'development',
+        mode: mode,
+
+        devtool: 'inline-source-map',
 
         devServer: {
             historyApiFallback: true,
@@ -17,7 +22,12 @@ module.exports = () => {
             rules: [
                 {
                     test: /\.(scss|css)$/,
-                    use: ['style-loader', 'css-loader', 'postcss-loader', 'sass-loader'],
+                    use: [
+                        'style-loader',
+                        'css-loader',
+                        'postcss-loader',
+                        'sass-loader',
+                    ],
                 },
             ],
         },

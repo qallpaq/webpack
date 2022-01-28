@@ -1,1 +1,1 @@
-# webpack
+Базовая сборка React + TS
