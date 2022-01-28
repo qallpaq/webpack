@@ -15,7 +15,7 @@
 /.lighthouseci
 
 # production
-/build
+/dist
 
 # short deeplinks
 /public/promo/i
