@@ -16,7 +16,7 @@ module.exports = {
     plugins: [
         new HtmlWebpackPlugin({
             title: "Webpack App",
-            template: path.resolve(__dirname, '../src/template.html'),
+            template: path.resolve(__dirname, '../src/public/index.html'),
             filename: 'index.html',
         }),
         new CleanWebpackPlugin(),
@@ -26,7 +26,7 @@ module.exports = {
     module: {
         rules: [
             {
-                test: /\.js$/,
+                test: /\.js$|jsx/,
                 exclude: /node_modules/,
                 use: ['babel-loader'],
             },

@@ -1,6 +1,5 @@
-import example from './images/Без названия.png'
-import svgExample from './images/qwe.svg'
-import './styles/main.scss'
+import React from "react";
+import ReactDOM from "react-dom";
+import App from "./components/app";
 
-console.log('eeeeeeeeeeeeeeeeee')
-console.log(2)
+ReactDOM.render(<App />, document.getElementById("root"));
