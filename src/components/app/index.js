@@ -1,6 +1,6 @@
 import React from "react"
-import example from '../../images/Без названия.png'
-import svgExample from '../../images/qwe.svg'
+import example from '../../assets/Без названия.png'
+import svgExample from '../../assets/qwe.svg'
 import './app.styles.scss'
 
 const App = () => (

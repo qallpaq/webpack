@@ -1,22 +1,22 @@
-const path = require('path')
+const paths = require('./paths');
 const webpack = require('webpack')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 
 module.exports = {
     entry: {
-        main: path.resolve(__dirname, '../src/index.js'),
+        main: paths.entryPath,
     },
 
     output: {
-        path: path.resolve(__dirname, '../dist'),
+        path: paths.distPath,
         filename: '[name].bundle.js',
     },
 
     plugins: [
         new HtmlWebpackPlugin({
             title: "Webpack App",
-            template: path.resolve(__dirname, '../src/public/index.html'),
+            template: paths.templatePath,
             filename: 'index.html',
         }),
         new CleanWebpackPlugin(),
